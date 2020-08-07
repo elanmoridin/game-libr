@@ -1,0 +1,166 @@
+/* Inspiration for my carousel came from William Goldsworthy
+check out his Code Pen at codepen.io/william-goldsworthy for the examples
+Working off of the tricks card carousel got card:not and card:hover ~ from here to use and am building off of that */
+
+body {
+    background-color: #222124;
+    font-family: 'Abel', sans-serif;
+    color: #acb2b8;
+    font-size: 18px;
+}
+/* The left calc taken from codepen.io/william-goldsworthy as it does a good
+job of aligning where I want the container on the left margin */
+#slideshow-container {
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    overflow: auto;
+    margin: 25px 0px 0px 0px;
+    left: calc(50%-200px);
+    display: flex;
+}
+
+.navigation-bar{
+display: flex;
+position: relative;
+margin-top: 315px;
+}
+
+.card {
+    display: flex;
+    height: 280px;
+    width: 125px;
+    border-radius: 10px;
+    transition: 0.5s ease-out;
+    position: relative;
+    left: 0px;
+    display: inline-flex;
+    border-radius: 20px;
+}
+/* moves all divs except the first child or first one in this container
+over 25px to the left to allow them to over ride the others */
+.card:not(:first-child) {
+    margin-left: -25px;
+}
+/* Moves the card up 10 pixels on the Y access and has it overlay everything when a div with the card class is highlighted */
+.card:hover {
+    transform: translateY(-10px);
+    transition: 0.5s ease-out;
+    z-index: 1;
+}
+/* codepen.io/william-goldsworthy for more info on this card. Has card settle after rolling off of hover and it flows back into position that it was highlighted from a hover over */
+.card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.3s ease-out;
+}
+/* w3schools.com/howto/howto_css_image_overlay_title.asp */
+.overlay {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    /* looking for a specific text highlight and found at wpshout.com/quick-guides/create-text-outline-css */
+    text-shadow: 
+        -1px -1px 0 #000,
+        1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px 1px 0 #000;
+}
+
+#search-box {
+    height: 30px;
+    width: 200px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.search-results-container {
+    max-width: 2200px;
+}
+
+.search-results {
+    float: left;
+    max-height: 500px;
+    max-width: 500px;
+    padding: 10px 10px 50px 10px;
+
+}
+
+img {
+    width: 400px;
+    height: 300px;
+}
+/* W3 schools tutorial to get the button pressing animation
+w3schools.com/howto/howto_css_animate_buttons.asp */
+.search-btn, #search-games, #random-game{
+    font-size: 14px;
+    height: 35px;
+    background-color: black;
+    background-image: linear-gradient(white, grey);
+    color: black;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px black;
+}
+.search-btn:active, #search-games:active, #random-game:active{
+    background-color: grey;
+    box-shadow: 0 2px #999;
+    transform: translateY(4px);
+}
+
+.api-stuff {
+    position: absolute;
+    right:0;
+    top:0;
+    margin: 0px 0px 0px 0px;
+}
+
+#random-game {
+    float: right;
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #slideshow-container {
+        position: absolute;
+        height: 200px;
+        width: 100%;
+        overflow: hidden;
+        margin: 25px 0px 0px 0px;
+        left: calc(50%-200px);
+        display: flex;
+        flex-wrap: wrap; 
+    }
+
+    .card {
+        display: flex;
+        height: 125px;
+        width: 75px;
+        border-radius: 10px;
+        transition: 0.5s ease-out;
+        position: relative;
+        left: 0px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        border-radius: 20px;
+    }
+
+    .search-btn, #search-games, #random-game{
+        width: 75px;
+        font-size: 10px;
+        height: 35px;
+        background-color: black;
+        background-image: linear-gradient(white, grey);
+        color: black;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 5px black;
+    }
+}

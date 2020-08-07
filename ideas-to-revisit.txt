@@ -1,0 +1,22 @@
+# Code History of old API I had to abandon because they don't accept straight JS calls.
+
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api-v3.igdb.com/search",
+    "method": "POST",
+    "headers": {
+    // due to api reading I don't think you need this in the call --
+    // only header/user-key are needed
+    //   "cookie": "__cfduid=d307b678a08eaf7957edb5fe95ee7d20e1592404929",
+      "user-key": "1a7b76ede7a5a7aa8a509e4e14bb4091"
+    },
+    "data": "fields *; search \"sonic the hedgehog\"; limit 50;\n"
+  }
+
+const baseURL = `https://api-v3.igdb.com`
+const apiKey = `1a7b76ede7a5a7aa8a509e4e14bb4091`
+const endpointType = `/search`
+const keyType = `user-key`
+let gameTitle = "Star Tropics" 
+let queryURL = baseURL + endpointType
