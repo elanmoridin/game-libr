@@ -10,7 +10,8 @@ This project is setup to use API by RAWG IO. It is made to search through an api
 ```
 :rocket: :tada: :octocat:
     
-  
+## [Live Site](https://game-libr.herokuapp.com/)
+
 ## Getting Started
 To use the RAWG IO api you need to include user-agent in the header of the api call with the title of your application as the user-agent. You must also give credit to the api on the site or in the app for the functionality. 
 
